@@ -96,19 +96,18 @@ button{
   color: hsl(183, 100%, 15%);
 }
 
-.select-porcent-wrapper input:focus{
+button.active{
+  background: hsl(172, 67%, 45%) !important;
+  color: hsl(183, 100%, 15%) !important;
+}
+
+input.active{
   border-color: hsl(172, 67%, 45%);
-  color: hsl(183, 100%, 15%);
 }
 
 .select-porcent-wrapper button:hover,
 .select-porcent-wrapper input:hover{
   background: hsl(185, 41%, 84%);
-  color: hsl(183, 100%, 15%);
-}
-
-.select-porcent-wrapper button:focus{
-  background: hsl(172, 67%, 45%);
   color: hsl(183, 100%, 15%);
 }
 

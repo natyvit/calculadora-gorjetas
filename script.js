@@ -1,4 +1,4 @@
-const valorConta = document.querySelector('#conta');
+const valorConta = document.querySelector('.conta');
 const porcentagem = document.querySelectorAll('#btnsPorcent button');
 const numPessoas = document.querySelector('#numPessoas');
 const valorGorjeta = document.querySelector('.valor-gorjeta');
@@ -7,18 +7,25 @@ const btnCustom = document.querySelector('#custom');
 const verificaPessoas = document.querySelector('#verifica-pessoas');
 const valorPorcentAtualizado = document.querySelector('#input-values');
 
+const limpaValorConta = () => {
+  const valorLimpo = valorConta.value
+  .replaceAll('.', '')
+  .replace(',', '.')
+  .replace('R$ ', '');
+  return +valorLimpo;
+};
+
 const calculaGorPessoa = () => {
-  const totalComPorcentPessoa = ((valorConta.value * valorPorcentAtualizado.value) / numPessoas.value);
+  const totalComPorcentPessoa = ((limpaValorConta() * valorPorcentAtualizado.value) / numPessoas.value);
   return totalComPorcentPessoa;
 };
 
 const calculaGorTotal = () => {
-  const totalComPorcent = (valorConta.value * valorPorcentAtualizado.value);
+  const totalComPorcent = (limpaValorConta() * valorPorcentAtualizado.value);
   return totalComPorcent;
 };
 
-const atualizaInputValues = (valor) => {
-  console.log(valor, valorPorcentAtualizado);
+const atualizaInputValues = (valor = 0) => {
   valorPorcentAtualizado.value = valor;
 };
 
@@ -27,7 +34,7 @@ const limpaCampos = () => {
   btnReset.addEventListener('click', event => {
     event.preventDefault();
     valorConta.value = '';
-    numPessoas.value = '';
+    numPessoas.value = '1';
     btnCustom.value = '';
     valorGorjeta.innerHTML = 'R$0.00';
     valorTotal.innerHTML = 'R$0.00';
@@ -58,15 +65,30 @@ const calculaPorcentagem = () => {
   valorTotal.innerHTML = `R$${calculaGorTotal().toFixed(2)}`;
 };
 
+const actives = (currentBtn) => {
+  porcentagem.forEach(btn => {
+    btn.classList.remove('active');
+  });
+  btnCustom.classList.remove('active');
+  currentBtn.classList.add('active');
+};
+
 const eventosPorcentagem = () => {
   porcentagem.forEach(btn => {
     btn.addEventListener('click', event => {
+      actives(btn);
       event.preventDefault();
       atualizaInputValues(btn.value);
       verificaValorConta();
       if(!verifica() || !verificaNumPessoas()) return;
       calculaPorcentagem();
     });
+  });
+
+  btnCustom.addEventListener('click', event => {
+    event.preventDefault();
+    atualizaInputValues();
+    actives(btnCustom);
   });
 
   btnCustom.addEventListener('keyup', event => {
