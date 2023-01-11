@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Gorjetas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="img/favicon-32x32.png" type="image/x-icon">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div>
+      <div class="valor-conta-wrapper">
+        <p>Valor da conta</p>
+        <input type="number" id="conta" placeholder="0" min="1">
+      </div>
+
+      <div class="select-porcent-wrapper">
+        <p>Selecione a porcentagem</p>
+        <div class="grid" id="btnsPorcent">
+          <button value="0.05">5%</button>
+          <button value="0.10">10%</button>
+          <button value="0.15">15%</button>
+          <button value="0.25">25%</button>
+          <button value="0.50">50%</button>
+          <input type="number" placeholder="Custom" min="1" id="custom">
+          <input type="number" id="input-values" style="display: none;">
+        </div>
+      </div>
+
+      <div class="numero-pessoas-wrapper">
+        <div class="numero-pessoas">
+          <p>Número de pessoas</p>
+          <p id="verifica-pessoas">Não pode ser zero</p>
+        </div>
+        <input type="number" min="1" id="numPessoas" placeholder="0">
+      </div>
+    </div>
+
+    <div class="container-direito">
+      <div class="valor-gorjeta-pessoa">
+        <div>
+          <p class="title">Valor da gorjeta</p>
+          <p class="sub-title">/por pessoa</p>
+        </div>
+        <span class="valor-gorjeta">R$0.00</span>
+      </div>
+
+      <div class="valor-total-pessoa">
+        <div>
+          <p class="title">Valor total</p>
+          <p class="sub-title">/por pessoa</p>
+        </div>
+        <span class="valor-total">R$0.00</span>
+      </div>
+
+      <button type="submit" class="btn-reset">Reset</button>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

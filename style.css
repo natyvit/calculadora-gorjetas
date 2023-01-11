@@ -1,0 +1,167 @@
+body, h1, h2, p, ul, li{
+  margin: 0;
+  padding: 0;
+}
+
+button, input{
+  border: none;
+  outline: none;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background: hsl(185, 41%, 84%);
+  font-family: 'Space Mono', monospace;
+  align-items: center;
+  display: flex;
+  height: 100vh;
+}
+
+button{
+  cursor: pointer;
+}
+
+.container{
+  max-width: 890px;
+  background: #fff;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px;
+}
+
+.container-direito{
+  max-width: 400px;
+  background: hsl(183, 100%, 15%);
+  border-radius: 10px;
+  padding-top: 60px;
+  padding-bottom: 35px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.valor-conta-wrapper p,
+.numero-pessoas-wrapper p,
+.select-porcent-wrapper p{
+  color: hsl(186, 14%, 43%);
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.valor-conta-wrapper input,
+.numero-pessoas-wrapper input{
+  padding: 15px;
+  width: 100%;
+  background: hsl(189, 41%, 97%);
+  border-radius: 6px;
+  border: 2px solid transparent;
+}
+
+.valor-conta-wrapper input:hover,
+.numero-pessoas-wrapper input:hover{
+  border-color: hsl(172, 67%, 45%);
+}
+
+.select-porcent-wrapper{
+  margin-top: 45px;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.select-porcent-wrapper button,
+.select-porcent-wrapper input{
+  width: 100%;
+  padding: 12px;
+  text-align: center;
+  background: hsl(183, 100%, 15%);
+  border-radius: 6px;
+  color: #fff;
+  font-family: 'Space Mono', monospace !important;
+  font-size: 18px;
+}
+
+.select-porcent-wrapper input{
+  background-color: hsl(189, 41%, 97%);
+  border: 2px solid transparent;
+  color: hsl(183, 100%, 15%);
+}
+
+.select-porcent-wrapper input:focus{
+  border-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+}
+
+.select-porcent-wrapper button:hover,
+.select-porcent-wrapper input:hover{
+  background: hsl(185, 41%, 84%);
+  color: hsl(183, 100%, 15%);
+}
+
+.select-porcent-wrapper button:focus{
+  background: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
+}
+
+.numero-pessoas-wrapper{
+  margin-top: 45px;
+}
+
+.title{
+  color: hsl(185, 41%, 84%);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.valor-gorjeta-pessoa,
+.valor-total-pessoa{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.valor-total-pessoa{
+  margin-top: 45px;
+}
+
+.sub-title{
+  display: block;
+  font-size: 12px;
+  color: hsl(184, 14%, 56%);
+}
+
+.valor-gorjeta,
+.valor-total{
+  font-size: 36px;
+  color: hsl(172, 67%, 45%);
+}
+
+.btn-reset{
+  width: 100%;
+  padding: 15px;
+  text-align: center;
+  margin-top: 85px;
+  background: hsl(172, 67%, 45%);
+  border-radius: 6px;
+  text-transform: uppercase;
+  font-family: 'Space Mono', monospace;
+}
+
+.numero-pessoas{
+  display: flex;
+  justify-content: space-between;
+}
+
+.numero-pessoas #verifica-pessoas{
+  color: #d56f5a;
+  display: none;
+}
