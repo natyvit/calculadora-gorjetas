@@ -7,27 +7,13 @@ const btnCustom = document.querySelector('#custom');
 const verificaPessoas = document.querySelector('#verifica-pessoas');
 const valorPorcentAtualizado = document.querySelector('#input-values');
 
-const limpaValorConta = () => {
-  const valorLimpo = valorConta.value
-  .replaceAll('.', '')
-  .replace(',', '.')
-  .replace('R$ ', '');
-  return +valorLimpo;
-};
+const limpaValorConta = () => +valorConta.value.replaceAll('.', '').replace(',', '.').replace('R$ ', '');
 
-const calculaGorPessoa = () => {
-  const totalComPorcentPessoa = ((limpaValorConta() * valorPorcentAtualizado.value) / numPessoas.value);
-  return totalComPorcentPessoa;
-};
+const calculaGorPessoa = () => ((limpaValorConta() * valorPorcentAtualizado.value) / numPessoas.value);
 
-const calculaGorTotal = () => {
-  const totalComPorcent = (limpaValorConta() * valorPorcentAtualizado.value);
-  return totalComPorcent;
-};
+const calculaGorTotal = () => (limpaValorConta() * valorPorcentAtualizado.value);
 
-const atualizaInputValues = (valor = 0) => {
-  valorPorcentAtualizado.value = valor;
-};
+const atualizaInputValues = (valor = 0) => valorPorcentAtualizado.value = valor;
 
 const limpaCampos = () => {
   const btnReset = document.querySelector('.btn-reset');
@@ -39,14 +25,19 @@ const limpaCampos = () => {
     valorGorjeta.innerHTML = 'R$0.00';
     valorTotal.innerHTML = 'R$0.00';
     verificaPessoas.style.display = 'none';
+    numPessoas.classList.remove('alert');
+    actives();
   });
 };
 
 const verificaNumPessoas = () => {
-  if (numPessoas.value < 0 || numPessoas.value === '0') {
+  if (numPessoas.value <= 0) {
     verificaPessoas.style.display = 'block';
+    numPessoas.classList.add('alert');
     return false;
   }
+  verificaPessoas.style.display = 'none';
+  numPessoas.classList.remove('alert');
   return true;
 };
 
@@ -65,12 +56,12 @@ const calculaPorcentagem = () => {
   valorTotal.innerHTML = `R$${calculaGorTotal().toFixed(2)}`;
 };
 
-const actives = (currentBtn) => {
+const actives = (currentBtn = null) => {
   porcentagem.forEach(btn => {
     btn.classList.remove('active');
   });
   btnCustom.classList.remove('active');
-  currentBtn.classList.add('active');
+  currentBtn&&currentBtn.classList.add('active');
 };
 
 const eventosPorcentagem = () => {
@@ -88,6 +79,7 @@ const eventosPorcentagem = () => {
   btnCustom.addEventListener('click', event => {
     event.preventDefault();
     atualizaInputValues();
+    calculaPorcentagem();
     actives(btnCustom);
   });
 

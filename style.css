@@ -164,3 +164,7 @@ input.active{
   color: #d56f5a;
   display: none;
 }
+
+.alert{
+  border-color: #d56f5a !important;
+}
