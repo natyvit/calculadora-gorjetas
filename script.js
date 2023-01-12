@@ -64,7 +64,25 @@ const actives = (currentBtn = null) => {
   currentBtn&&currentBtn.classList.add('active');
 };
 
-const eventosPorcentagem = () => {
+const changeValorConta = () => {
+  valorConta.addEventListener('keyup', event => {
+    event.preventDefault();
+    verificaValorConta();
+    if(!verifica() || !verificaNumPessoas()) return;
+    calculaPorcentagem();
+  });
+};
+
+const changeNumPessoas = () => {
+  numPessoas.addEventListener('keyup', event => {
+    event.preventDefault();
+    verificaValorConta();
+    if(!verifica() || !verificaNumPessoas()) return;
+    calculaPorcentagem();
+  });
+};
+
+const changeBtnPorcentagem = () => {
   porcentagem.forEach(btn => {
     btn.addEventListener('click', event => {
       actives(btn);
@@ -75,7 +93,9 @@ const eventosPorcentagem = () => {
       calculaPorcentagem();
     });
   });
+};
 
+const changeBtnCustom = () => {
   btnCustom.addEventListener('click', event => {
     event.preventDefault();
     atualizaInputValues();
@@ -91,21 +111,15 @@ const eventosPorcentagem = () => {
     if(!verifica() || !verificaNumPessoas()) return;
     calculaPorcentagem();
   });
+};
 
-  numPessoas.addEventListener('keyup', event => {
-    event.preventDefault();
-    verificaValorConta();
-    if(!verifica() || !verificaNumPessoas()) return;
-    calculaPorcentagem();
-  });
 
-  valorConta.addEventListener('keyup', event => {
-    event.preventDefault();
-    verificaValorConta();
-    if(!verifica() || !verificaNumPessoas()) return;
-    calculaPorcentagem();
-  });
-  
+const eventosPorcentagem = () => {
+  changeValorConta();
+  changeNumPessoas();
+  changeBtnPorcentagem();
+  changeBtnCustom();
+
   limpaCampos();
 };
 
