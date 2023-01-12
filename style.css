@@ -77,18 +77,18 @@ button{
 .grid{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  gap: 12px;
 }
 
 .select-porcent-wrapper button,
 .select-porcent-wrapper input{
   width: 100%;
-  padding: 12px;
+  padding: 8px;
   text-align: center;
   background: hsl(183, 100%, 15%);
   border-radius: 6px;
   color: #fff;
-  font-size: 18px;
+  font-size: 24px;
 }
 
 .select-porcent-wrapper input{
