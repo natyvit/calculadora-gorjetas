@@ -10,11 +10,11 @@ button, input{
 
 *{
   box-sizing: border-box;
+  font-family: 'Space Mono', monospace;
 }
 
 body{
   background: hsl(185, 41%, 84%);
-  font-family: 'Space Mono', monospace;
   align-items: center;
   display: flex;
   height: 100vh;
@@ -56,11 +56,13 @@ button{
 
 .valor-conta-wrapper input,
 .numero-pessoas-wrapper input{
-  padding: 15px;
   width: 100%;
+  padding: 5px;
   background: hsl(189, 41%, 97%);
   border-radius: 6px;
   border: 2px solid transparent;
+  font-weight: bold;
+  color: hsl(183, 100%, 15%);
 }
 
 .valor-conta-wrapper input:hover,
@@ -86,7 +88,6 @@ button{
   background: hsl(183, 100%, 15%);
   border-radius: 6px;
   color: #fff;
-  font-family: 'Space Mono', monospace !important;
   font-size: 18px;
 }
 
@@ -152,7 +153,6 @@ input.active{
   background: hsl(172, 67%, 45%);
   border-radius: 6px;
   text-transform: uppercase;
-  font-family: 'Space Mono', monospace;
 }
 
 .numero-pessoas{
@@ -167,6 +167,22 @@ input.active{
 
 .alert{
   border-color: #d56f5a !important;
+}
+
+input.conta{
+  font-size: 24px;
+  text-align: right;
+  background-image: url("./img/icon-dollar.svg");
+  background-repeat: no-repeat;
+  background-position: 5% ;
+}
+
+input#numPessoas{
+  font-size: 24px;
+  text-align: right;
+  background-image: url("./img/icon-person.svg");
+  background-repeat: no-repeat;
+  background-position: 5% ;
 }
 
 @media (max-width: 768px){
