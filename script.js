@@ -7,9 +7,9 @@ const btnCustom = document.querySelector('#custom');
 const verificaPessoas = document.querySelector('#verifica-pessoas');
 const valorPorcentAtualizado = document.querySelector('#input-values');
 
-const limpaValorConta = () => +valorConta.value.replaceAll('.', '').replace(',', '.');
-
 const calculaGorPessoa = () => ((limpaValorConta() * valorPorcentAtualizado.value) / numPessoas.value);
+
+const limpaValorConta = () => +valorConta.value.replaceAll('.', '').replace(',', '.');
 
 const calculaGorTotal = () => (limpaValorConta() * valorPorcentAtualizado.value);
 
