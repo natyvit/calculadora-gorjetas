@@ -69,7 +69,7 @@
 
   <script>
     $(function() {
-      $("#demo1").maskMoney();
+      $("#demo1").maskMoney({allowNegative: true, thousands:'.', decimal:',', affixesStay: false});
     })
   </script>
 
